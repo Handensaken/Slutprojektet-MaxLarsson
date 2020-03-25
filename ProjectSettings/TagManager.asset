@@ -9,6 +9,9 @@ TagManager:
   - Straw
   - FireBall
   - DeathZone
+  - FlameTurret
+  - flame
+  - AlsoGround
   layers:
   - Default
   - TransparentFX
