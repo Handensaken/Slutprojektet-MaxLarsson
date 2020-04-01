@@ -16,4 +16,8 @@ public class SceneManagement
     {
         SceneManager.LoadScene(3);
     }
+    public static void Play()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

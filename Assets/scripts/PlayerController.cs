@@ -25,9 +25,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myFireScript = GetComponentInChildren<FireScript>();
+        HP = 5;
+        Debug.Log("Jag hann inte lägga till en startsärm där kontrollerna beskrivs.");
+        Debug.Log("Jump with space; walk with A and D or leftArrow and rightArrow.");
+        Debug.Log("Fire with F or leftControl; switch weapon with TAB");
+        Debug.Log("Sprint with SHIFT");
     }
 
     // Update is called once per frame
+    bool once = false;
     void Update()
     {
         xInput = Input.GetAxisRaw("Horizontal");
@@ -64,12 +70,17 @@ public class PlayerController : MonoBehaviour
         if (ammo[weapon] == 0)
         {
             reloadTime[weapon] -= Time.deltaTime;
-            Debug.Log("reloading");
+            if (!once)
+            {
+                Debug.Log("reloading");
+                once = true;
+            }
             if (reloadTime[weapon] <= 0)
             {
                 Debug.Log("reloaded");
                 ammo[weapon] = ammoBase[weapon];
                 reloadTime[weapon] = reloadTimeBase[weapon];
+                once = true;
             }
         }
 
@@ -105,7 +116,7 @@ public class PlayerController : MonoBehaviour
     public void Hurt(int dmg)
     {
         HP -= dmg;
-        Debug.Log($"ow took {dmg} damage");
+        Debug.Log($"took {dmg} damage. You now have {HP} HP left");
         if (HP <= 0)
         {
             SceneManagement.Death();
