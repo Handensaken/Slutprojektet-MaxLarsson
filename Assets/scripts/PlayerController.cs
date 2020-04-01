@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,13 +14,13 @@ public class PlayerController : MonoBehaviour
     public static int weapon = 0;
     readonly int MaxWeapons = 2;
     public static int damage = 10;
-    int HP = 5;
+    public int HP = 5;
     private bool isJumping = false;
     FireScript myFireScript;
     public int[] ammo = { 50, 1 };
     public int[] ammoBase = { 50, 1 };
-    float[] reloadTime = {15f , 20f};
-    float[] reloadTimeBase = { 15f, 20f };
+    readonly float[] reloadTime = { 15f, 20f };
+    readonly float[] reloadTimeBase = { 15f, 20f };
     // Start is called before the first frame update
     void Start()
     {
@@ -88,10 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 3;
         }
-        if (HP <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -101,12 +99,16 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("DeathZone"))
         {
-            Destroy(this.gameObject);
+            SceneManagement.Death();
         }
     }
     public void Hurt(int dmg)
     {
         HP -= dmg;
         Debug.Log($"ow took {dmg} damage");
+        if (HP <= 0)
+        {
+            SceneManagement.Death();
+        }
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - FlameTurret
   - flame
   - AlsoGround
+  - Water
   layers:
   - Default
   - TransparentFX

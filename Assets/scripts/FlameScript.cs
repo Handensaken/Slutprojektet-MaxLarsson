@@ -39,7 +39,5 @@ public class FlameScript : MonoBehaviour
         GameObject clone;
         clone = Instantiate(projectile, transform.position, Quaternion.identity);
         clone.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(Vector3.up * speed * Time.deltaTime);
-        Debug.Log(clone.GetComponent<Rigidbody2D>().velocity);
-
     }
 }

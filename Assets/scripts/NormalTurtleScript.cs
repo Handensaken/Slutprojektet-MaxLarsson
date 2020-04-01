@@ -60,6 +60,7 @@ public class NormalTurtleScript : MonoBehaviour
             {
                 HP -= PlayerController.damage;
                 called = true;
+
             }
         }
         if (collision.gameObject.CompareTag("Player"))

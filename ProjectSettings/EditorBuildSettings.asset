@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: befe9a305f4c84e48a9bfefd913d2a8b
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 9c07b248a98c32b44bbf9ba16d424a31
+  - enabled: 1
+    path: Assets/Scenes/SaveWinScene.unity
+    guid: 155deff404145254a8575a3cd2c10593
+  - enabled: 1
+    path: Assets/Scenes/KillWinScene.unity
+    guid: f1791e2d162b8e541a2faa41e43f9658
   m_configObjects: {}

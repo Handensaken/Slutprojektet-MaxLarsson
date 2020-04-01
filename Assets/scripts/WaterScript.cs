@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class flameScript : MonoBehaviour
+public class WaterScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    int strawCount;
     void Start()
     {
-        
+        strawCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y >= -10)
+        if(strawCount >= 3)
         {
-            Destroy(this.gameObject);
-        } 
+            SceneManagement.KillWin();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "FlameTurret" && collision.gameObject.tag != "flame")
+        if (collision.gameObject.CompareTag("Straw"))
         {
-             Destroy(this.gameObject);
-            Debug.Log("hit " + collision.gameObject.name);
+            strawCount++;
         }
     }
 }

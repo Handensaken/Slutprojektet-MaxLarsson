@@ -13,14 +13,14 @@ public class FireScript : MonoBehaviour
     public GameObject player;
     void Start()
     {
-        
+        projectileSpeed = 1000;
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         
-    }
+    }*/
     public void Fire(int weaponIndex, bool right)
     {
         Rigidbody2D clone;
