@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myFireScript = GetComponentInChildren<FireScript>();
+        myFireScript = GetComponentInChildren<FireScript>(); //hämtar skriptet FireScript
         HP = 5;
         Debug.Log("Jag hann inte lägga till en startsärm där kontrollerna beskrivs.");
         Debug.Log("Jump with space; walk with A and D or leftArrow and rightArrow.");
@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
         }
         transform.rotation = Quaternion.identity;
         transform.Translate(movementX);
+        //^^sköter rörelse och rikting
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 ammo[weapon]--;
             }
         }
-
+        //^^sköter skjutning av vald projektil
         if (ammo[weapon] == 0)
         {
             reloadTime[weapon] -= Time.deltaTime;
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 once = true;
             }
         }
-
+        //^^gör att man behöver ladda om sitt vapen när man får slut på ammunition
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             weapon++;
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
                 weapon = 0;
             }
         }
+        //^^sköter byte av vapen
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 6;
@@ -100,7 +102,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 3;
         }
-
+        //^^sköter sprinting
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -113,6 +115,7 @@ public class PlayerController : MonoBehaviour
             SceneManagement.Death();
         }
     }
+    //^^gör att man dör om man vidrör syran
     public void Hurt(int dmg)
     {
         HP -= dmg;
@@ -122,4 +125,5 @@ public class PlayerController : MonoBehaviour
             SceneManagement.Death();
         }
     }
+    //^^gör att man tar skada om man träffas av en fientlig attack och att man dör om ens hp når 0
 }

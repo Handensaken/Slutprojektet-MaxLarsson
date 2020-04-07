@@ -16,7 +16,7 @@ public class TurtleTankProjectileScript : MonoBehaviour
     {
         if(transform.position.x <= 53)
         {
-            this.GetComponent<Rigidbody2D>().gravityScale = 1;
+            this.GetComponent<Rigidbody2D>().gravityScale = 1;      //sätter igång gravitationen när skottet kommer till en viss punkt
         }
     }
     bool called = false;
@@ -38,11 +38,14 @@ public class TurtleTankProjectileScript : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        //^^förstör skottet om det träffar marken eller ett skott från spelaren
+        //jag kan ta bort denna kod och byta ut mot en simpel Destroy(this.gameObject); om jag taggar motstångaren som skjuter den så att den inte förstörs om den vidrör sköldpaddan
+        //problemet är att jag inte orkar göra det just nu
         if (collision.gameObject.CompareTag("Player"))
         {
             if (!called)
             {
-                collision.gameObject.GetComponent<PlayerController>().Hurt(damage);
+                collision.gameObject.GetComponent<PlayerController>().Hurt(damage);     //skadar spelaren
                 called = true;
             }
             Destroy(this.gameObject);

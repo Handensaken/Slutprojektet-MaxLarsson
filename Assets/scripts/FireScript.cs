@@ -31,4 +31,5 @@ public class FireScript : MonoBehaviour
             clone.GetComponent<ProjectileController>().Flip();
         }
     }
+    //^^skjuter en projektil
 }

@@ -31,11 +31,11 @@ public class FlameScript : MonoBehaviour
         {
             timer = 15f;
         }
+        //^^skjuter eld i 10 sekunder sen laddar om i 5 sekunder
     }
 
     void Fire()
     {
-        //Debug.Log("Fired");
         GameObject clone;
         clone = Instantiate(projectile, transform.position, Quaternion.identity);
         clone.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(Vector3.up * speed * Time.deltaTime);

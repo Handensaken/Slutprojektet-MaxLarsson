@@ -24,7 +24,7 @@ public class NormalTurtleScript : MonoBehaviour
             {
                 direction *= -1;
                 transform.localScale = new Vector3(-1, 1, 1);
-
+                //^^vänder objektet
             }
         }
         if (transform.position.x >= 15)
@@ -33,13 +33,13 @@ public class NormalTurtleScript : MonoBehaviour
             {
                 direction *= -1;
                 transform.localScale = new Vector3(1, 1, 1);
-            }
+            }//^^vänder objektet
         }
-        transform.Translate(movement);
+        transform.Translate(movement);          //flyttar objektet
 
         if (HP <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);       //dödar motståndaren
         }
 
     }
@@ -52,7 +52,7 @@ public class NormalTurtleScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Straw"))
         {
-            HP = 0;
+            HP = 0;     //dödar motståndaren direkt om den träffas av ett sugrör
         }
         if (collision.gameObject.CompareTag("FireBall"))
         {
@@ -60,7 +60,7 @@ public class NormalTurtleScript : MonoBehaviour
             {
                 HP -= PlayerController.damage;
                 called = true;
-
+                //^^skadar den om den träffas av ett eldklot
             }
         }
         if (collision.gameObject.CompareTag("Player"))
@@ -70,6 +70,6 @@ public class NormalTurtleScript : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerController>().Hurt(damage);
                 called = true;
             }
-        }
+        }//^^skadar spelaren om den går in i motståndaren
     }
 }

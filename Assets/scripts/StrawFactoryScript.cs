@@ -26,5 +26,5 @@ public class StrawFactoryScript : MonoBehaviour
                 SceneManagement.SaveWin();
             }
         }
-    }
+    }//^^gör att spelaren vinner om den förstör fabriken med eldskotten 
 }

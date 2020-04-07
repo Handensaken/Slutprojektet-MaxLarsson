@@ -32,6 +32,7 @@ public class TurtleTankFireScript : MonoBehaviour
                 currentTimer = 0;
             }
         }
+        //^^skjuter när en timer i en array når 0och byter sedan till nästa timer för att få motståndaren att skjuta flera gånger och sedan ladda om
     }
 
     void Fire()
@@ -40,5 +41,5 @@ public class TurtleTankFireScript : MonoBehaviour
         timer = 10f;
         Straw = Instantiate(tankProjectile, transform.position, Quaternion.identity);
         Straw.velocity = transform.TransformDirection(Vector3.left * projectileSpeed * Time.deltaTime);
-    }
+    }//^^skuter
 }

@@ -25,11 +25,12 @@ public class ProjectileController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        //^^förstör projektilen om den rör någonting annat än spelaren
     }
 
     public void Flip()
     {
         mySpriteRenderer.flipX = !mySpriteRenderer.flipX;
-    }
+    }//^^gör att projektilen är vänd åt samma håll som spelaren
 
 }

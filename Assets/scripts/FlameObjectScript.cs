@@ -17,7 +17,7 @@ public class FlameObjectScript : MonoBehaviour
     {
         if(transform.position.y >= -10)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);       //försör elden om den når en viss punkt
         } 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,6 +26,6 @@ public class FlameObjectScript : MonoBehaviour
         {
             player.GetComponent<PlayerController>().Hurt(damage);
              Destroy(this.gameObject);
-        }
+        } //^^förstör elden om den kolliderar med någonting annat än sig själv eller tornet som skjuter den
     }
 }

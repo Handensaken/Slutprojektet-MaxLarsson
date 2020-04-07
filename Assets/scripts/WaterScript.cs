@@ -5,25 +5,25 @@ using UnityEngine;
 public class WaterScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    int strawCount;
+    int strawCountRemaining;
     void Start()
     {
-        strawCount = 0;
+        strawCountRemaining = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(strawCount >= 3)
+        if(strawCountRemaining >= 3)
         {
-            SceneManagement.KillWin();
+            SceneManagement.KillWin();  
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Straw"))
         {
-            strawCount++;
+            strawCountRemaining++;
         }
     }
 }

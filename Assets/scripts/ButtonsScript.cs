@@ -6,10 +6,10 @@ public class ButtonsScript : MonoBehaviour
 { 
     public void PlayAgain()
     {
-        SceneManagement.Play();
+        SceneManagement.Play();     //startar om spelet
     }
     public void Quit()
     {
-        Application.Quit();
+        Application.Quit();     //ska stänga programmet
     }
 }

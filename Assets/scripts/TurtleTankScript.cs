@@ -16,11 +16,11 @@ public class TurtleTankScript : MonoBehaviour
     {
         if (HP <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);       //dödar sköldpaddan om dess HP når 0
         }
     }
     bool called = false;
-    private void LateUpdate()
+    private void LateUpdate()       //uppdaterar i slutet av varje frame, det sista som händer varje frame.
     {
         called = false;
     }
@@ -28,11 +28,15 @@ public class TurtleTankScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Straw"))
         {
-            HP -= PlayerController.damage * 5;
+            if (!called)        //gör att den inte kan skadas flera gånger av samma skott
+            {
+                HP -= PlayerController.damage * 5;
+                called = true;
+            }
         }
         if (collision.gameObject.CompareTag("FireBall"))
         {
-            if (!called)
+            if (!called)        
             {
                 HP -= PlayerController.damage;
                 called = true;
